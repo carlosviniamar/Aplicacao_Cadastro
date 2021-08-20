@@ -1,3 +1,4 @@
+import 'package:aplicacao_cadastro/Provider/users.dart';
 import 'package:aplicacao_cadastro/views/user_list.dart';
 import 'package:flutter/material.dart';
 
@@ -6,15 +7,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of your ap plication.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => Users(),
+        ), //changeNotifierProvider
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: UserList(),
       ),
-      home: UserList(),
     );
   }
 }
