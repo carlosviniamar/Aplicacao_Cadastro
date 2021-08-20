@@ -1,4 +1,6 @@
+import 'package:aplicacao_cadastro/Models/user.dart';
 import 'package:flutter/material.dart';
+import 'package:aplicacao_cadastro/Provider/users.dart';
 
 class USERFORM extends StatelessWidget {
   final _form = GlobalKey<FormState>();
@@ -16,6 +18,7 @@ class USERFORM extends StatelessWidget {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
     final User user = ModalRoute.of(context)!.settings.arguments;
     _loadFormData(user);
   }
